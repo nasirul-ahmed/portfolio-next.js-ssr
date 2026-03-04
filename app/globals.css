@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
@@ -13,6 +13,43 @@ body {
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  /* Custom Colors */
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-secondary: #8b5cf6;
+  --color-accent: #ec4899;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+
+  /* Surface Colors */
+  --color-surface: #ffffff;
+  --color-surface-dark: #1e1e1e;
+  --color-surface-light: #f5f5f5;
+
+  /* Text Colors */
+  --color-text-primary: #212121;
+  --color-text-secondary: #757575;
+  --color-text-disabled: #9e9e9e;
+
+  /* Border Colors */
+  --color-border: #e0e0e0;
+  --color-border-dark: #424242;
+
+  --dark-primary: #181c14;
+  --dark-secondary: #3c3d37;
+  --dark-text-primary: #ecdfcc;
+  --dark-text-secondary: #697565;
+  --light-primary: #89a8b2;
+  --light-secondary: #b3c8cf;
+  --light-text-primary: #f1f0e8;
+  --light-text-secondary: #e5e1da;
+
+  /* fonts */
+  --font-quintessential: var(--font-quintessential), cursive;
+  --font-lato: var(--font-lato), sans-serif;
+}
 
 /* No scrollbar */
 @layer utilities {
@@ -26,4 +63,17 @@ body {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+}
+
+@keyframes skill-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-skill-shimmer {
+  animation: skill-shimmer 2s linear infinite;
 }

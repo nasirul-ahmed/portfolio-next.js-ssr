@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useTheme as useNextTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useTheme as useNextTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export const useTheme = () => {
   const { theme, setTheme, systemTheme, themes } = useNextTheme();
@@ -12,13 +12,13 @@ export const useTheme = () => {
   }, []);
 
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
-  const currentTheme = theme === "system" ? systemTheme : theme;
+  const currentTheme = theme === 'system' ? systemTheme : theme;
 
   return {
-    theme: mounted ? currentTheme : "light", // Default to light during SSR
+    theme: mounted ? currentTheme : 'light', // Default to light during SSR
     systemTheme,
     themes,
     setTheme,

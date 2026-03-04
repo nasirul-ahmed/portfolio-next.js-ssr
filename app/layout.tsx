@@ -1,23 +1,26 @@
-import type { Metadata } from "next";
-import { Lato, Quintessential } from "next/font/google";
-import "./globals.css";
-import Header from "./_components/Header";
-import Footer from "./_components/Footer";
-import Profile from "./_components/Profile";
-import { ThemeProvider } from "./_providers/ThemeProvider";
-import { config } from "@/config/config";
+import type { Metadata } from 'next';
+import { Lato, Quintessential } from 'next/font/google';
+import './globals.css';
+import Header from './_components/Header';
+import Footer from './_components/Footer';
+import Profile from './_components/Profile';
+import { ThemeProvider } from './_providers/ThemeProvider';
+import { config } from '@/config/config';
 
 const quintessential = Quintessential({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-quintessential",
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal'],
+  variable: '--font-quintessential',
+  display: 'swap',
 });
 
 const lato = Lato({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
-  display: "swap",
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-lato',
 });
 // Metadata API for better SEO [citation:2]
 export const metadata: Metadata = {
@@ -28,19 +31,18 @@ export const metadata: Metadata = {
   description: config.description,
   openGraph: {
     title: `${config.name} - ${config.role}`,
-    description: "Check out my portfolio and projects",
-    // Todo: need top configure later
-    url: `https://${config.username}.com`,
+    description: config.description,
+    url: config.domain,
     siteName: config.name,
     images: [
       {
-        url: "/images/profile2.jpg",
+        url: '/images/profile2.jpg',
         width: 1200,
         height: 630,
       },
     ],
-    locale: "en_US",
-    type: "website",
+    locale: 'en_US',
+    type: 'website',
   },
   robots: {
     index: true,
@@ -48,37 +50,59 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export const dynamic = 'force-static';
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${lato.className} ${quintessential.variable} scroll-smooth`}
-      >
+    <html lang='en' suppressHydrationWarning>
+      <body className={`${lato.variable} ${quintessential.variable} scroll-smooth`}>
         <ThemeProvider>
           <main className={`flex w-full h-screen overflow-hidden gap-0`}>
-            <section className="w-[30%] lg:p-4 hidden lg:flex flex-col border-r border-white/10 bg-[var(--material)] dark:bg-[var(--material)]">
+            <section className='w-[30%] lg:p-4 hidden lg:flex flex-col border-r border-white/10 bg-gray-100/50 dark:bg-black'>
               <Profile />
             </section>
 
-            <section className="flex-1 flex bg-white dark:bg-black flex-col w-full rounded-r-2xl md:rounded-l-none rounded-l-2xl overflow-hidden">
-              <div className="flex-none z-50">
-                <Header />
-              </div>
+            <section className='relative flex-1 flex bg-white dark:bg-[var(--material)] flex-col w-full overflow-hidden'>
+              <Header />
 
-              <section className="flex-1 overflow-y-auto px-6 py-8 no-scrollbar scroll-smooth">
-                <div className="lg:hidden px-6 pt-6 mb-6">
+              {/* <section className='flex-1 overflow-y-auto px-6 py-8 no-scrollbar scroll-smooth'>
+                <div className='lg:hidden sm:px-6 pt-6 mb-6'>
                   <Profile />
                 </div>
-                <div className="max-w-4xl mx-auto">{children}</div>
+                <div className='max-w-4xl mx-auto lg:mt-24'>{children}</div>
+                <Footer />
+              </section> */}
+              <section className='flex flex-col flex-1 overflow-hidden'>
+                {/* Scrollable content */}
+                <div className='flex-1 overflow-y-auto no-scrollbar scroll-smooth'>
+                  <div className='lg:hidden sm:px-6 p-6 mt-10'>
+                    <Profile />
+                  </div>
+
+                  <div className='max-w-4xl mx-auto sm:mt-2 md:mt-20 lg:mt-24 px-4 py-8 sm:px-2 sm:py-4'>
+                    {children}
+                  </div>
+                </div>
+
+                {/* Footer pinned to bottom */}
                 <Footer />
               </section>
             </section>
           </main>
         </ThemeProvider>
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: config.name,
+              url: config.domain,
+              jobTitle: config.role,
+              sameAs: config.socials.map(social => social.url),
+            }),
+          }}
+        />
       </body>
     </html>
   );

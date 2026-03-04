@@ -1,92 +1,361 @@
+import { ExpertiseItem, Skill, Social } from '@/lib/interfaces';
+
 export const config = {
-  name: "Nasirul Ahmed",
-  username: "nasirulahmed",
-  role: "Full Stack Software Developer",
-  description:
-    "Software engineer portfolio showcasing full-stack development with Next.js",
+  name: 'Nasirul Ahmed',
+  username: 'nasirulahmed',
+  role: 'Full Stack Software Developer',
+  domain: 'https://nasirulahmed.com',
+  description: 'Software engineer portfolio showcasing full-stack development with Next.js',
   contact: {
-    phone: "+91 9101336849",
-    email: "nasirul369@gmail.com",
-    address: "Assam, India",
-    birthday: "Aug 2",
+    phone: '+91 9101336849',
+    email: 'nasirul369@gmail.com',
+    address: 'Assam, India',
+    birthday: 'Aug 2',
   },
+  education: [
+    {
+      institution: 'North Eastern Hill University',
+      location: 'Meghalaya',
+      degree: 'B.Tech in Information Technology',
+      duration: '2016 - 2020',
+    },
+    {
+      institution: 'Ranjit Sharma Junior Academy',
+      location: 'Mangaldoi',
+      degree: 'Intermediate (12th standards)',
+      duration: '2014 - 2016',
+    },
+    {
+      institution: 'Sankardev Sishu Vidya Niketan',
+      location: 'Mangaldoi',
+      degree: 'Matriculation (10th standards)',
+      duration: '2014',
+    },
+  ],
+  primarySkills: [
+    {
+      icon: 'GiArtificialIntelligence',
+      color: 'text-purple-600 dark:text-purple-400',
+      skill: 'AI Powered Development',
+      rating: 85,
+    },
+    {
+      icon: 'TbPrompt',
+      color: 'text-yellow-500 dark:text-yellow-400',
+      skill: 'Prompt Engineering',
+      rating: 70,
+    },
+    {
+      icon: 'SiClaude',
+      color: 'text-[#D97757] dark:text-[#D97757]/80',
+      skill: 'Claude Code',
+      rating: 85,
+    },
+    {
+      icon: 'DiMongodb',
+      color: 'text-green-600 dark:text-green-400',
+      skill: 'MongoDB',
+      rating: 70,
+    },
+    {
+      icon: 'DiPostgresql',
+      color: 'text-blue-600 dark:text-blue-400',
+      skill: 'Postgres',
+      rating: 36,
+    },
+    {
+      icon: 'SiNodedotjs',
+      color: 'text-green-600 dark:text-green-400',
+      skill: 'Node.Js/Express.Js',
+      rating: 90,
+    },
+    {
+      icon: 'SiReact',
+      color: 'text-blue-600 dark:text-blue-400',
+      skill: 'React.Js',
+      rating: 82,
+    },
+    {
+      icon: 'SiNextdotjs',
+      color: 'text-gray-800 dark:text-gray-300',
+      skill: 'Next.Js',
+      rating: 55,
+    },
+    {
+      icon: 'FaAws',
+      color: 'text-orange-600 dark:text-orange-400',
+      skill: 'AWS EC2/S3/CloudFront',
+      rating: 52,
+    },
+    {
+      icon: 'FaDocker',
+      color: 'text-blue-600 dark:text-blue-400',
+      skill: 'Docker, CI/CD',
+      rating: 33,
+    },
+    {
+      icon: 'FaGithub',
+      color: 'text-gray-800 dark:text-gray-300',
+      skill: 'Github/Git',
+      rating: 70,
+    },
+  ] as Skill[],
+  workExperiences: [
+    {
+      company: 'Pixentech Private Limited',
+      role: 'Full Stack Software Engineer',
+      duration: 'July 2022 - October 2025',
+      summary:
+        'Full Stack Engineer specializing in building scalable, real-time applications serving 50K+ concurrent users. Expert in Node.js/React ecosystems with deep experience in GraphQL, MongoDB, and Redis for high-performance data layers. Proven track record of reducing query latency by 40% and API response times by 25% through optimized indexing and caching strategies. Strong background in cloud deployment (AWS EC2/S3) and CI/CD automation with GitHub Actions, ensuring reliable, fast production releases.',
+    },
+  ],
+  knowledge: [
+    'Database Query Optimization & Performance Tuning',
+    'AI-Powered Development',
+    'Claude AI',
+    'Advanced Prompt Engineering',
+    'Agile/Scrum Methodology',
+    'Microservice Architecture',
+    'Server-side Optimization',
+    'RESTful API & GraphQL Development',
+    'iGaming Development',
+    'Performance Monitoring',
+    'Github Actions & CI/CD Pipeline',
+    'Cross-functional Collaboration',
+    'Debugging & Testing',
+    'Server Actions & Form Handling',
+    'Streaming & Suspense Boundaries',
+    'Rendering Strategies (SSR, SSG)',
+    'Understanding of RSC (React Server Components)',
+    'React Custom Hooks Deigns',
+    'Atomic Design Patterns',
+    'Frontend Integration/Testing',
+    'Windowing',
+    'Code Splitting',
+    'Reconciliation & Diffing',
+    'Responsive Web Design',
+    'MongoDB Schema Design',
+    'PostGreSQL Entity Design',
+    'Game Engine Development',
+    'Remote Gaming Server (RGS)',
+    'Continuous Learning',
+    'Mentoring & Knowledge Sharing',
+    'Code Review & Quality Assurance',
+  ],
+  projects: [
+    {
+      id: 'onepe',
+      title: 'OnePe',
+      subtitle: 'Mobile first Web Application for bill payments & other services',
+      thumbnail: '/projects/onepe/thumbnail.png',
+      description:
+        'OnePe is a modern, responsive bill payment application built with Next.js, focused on bill payments and wallet management (without peer-to-peer transfers or QR scanning).',
+      technologies: [
+        'React',
+        'Next.js',
+        'Tailwind CSS',
+        'Node.js',
+        'PostgresSQL',
+        'MongoDB',
+        'Microservices',
+        'AWS',
+        'Redis',
+      ],
+      liveUrl: 'https://onepe.netbitstudio.com/',
+      githubUrl: 'https://github.com/nasirul-ahmed/onepe_fe_v2',
+      featured: true,
+      sampleImages: [
+        '/projects/onepe/thumbnail.png',
+        '/projects/onepe/image2.png',
+        '/projects/onepe/image3.png',
+        '/projects/onepe/image4.png',
+        '/projects/onepe/image5.png',
+        '/projects/onepe/image6.png',
+      ],
+      year: '2024',
+    },
+  ],
   headerNavs: [
     {
-      item: "About",
-      href: "/about",
+      item: 'About',
+      href: '/about',
     },
     {
-      item: "Projects",
-      href: "/projects",
+      item: 'Projects',
+      href: '/projects',
     },
     {
-      item: "CV",
-      href: "/resume",
+      item: 'CV',
+      href: '/resume',
     },
     {
-      item: "Get in Touch",
-      href: "/contact",
+      item: 'Contact',
+      href: '/contact',
     },
   ],
   socials: [
     {
-      name: "GitHub",
-      url: "https://github.com/nasirul-ahmed",
-      viewBox: "0 0 24 24",
-      color: "#4460A0",
-      iconPath: (
-        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+      name: 'GitHub',
+      url: 'https://github.com/nasirul-ahmed',
+      viewBox: '0 0 24 24',
+      color: '#4460A0',
+      icon: 'FaGithub',
+    },
+    {
+      name: 'LinkedIn',
+      url: 'https://linkedin.com/in/nasirul-ahmed',
+      viewBox: '0 0 382 382',
+      color: '#4460A0',
+      icon: 'FaLinkedin',
+    },
+    {
+      name: 'X',
+      url: 'https://x.com/n__ahmed_',
+      viewBox: '0 0 24 24',
+      color: '#4460A0',
+      icon: 'FaXTwitter',
+    },
+    {
+      name: 'facebook',
+      url: 'https://facebook.com/share/1FDJAKXT7F/',
+      viewBox: '0 0 24 24',
+      color: '#4460A0',
+      icon: 'FaFacebookSquare',
+    },
+  ] as Social[],
+  about: [
+    {
+      text: `I'm a Full Stack Software Engineer from Assam, India, who builds fast,
+          reliable web applications that scale under real traffic. My strength
+          is backend development—designing scalable APIs, optimizing data
+          access, and keeping systems stable as demand grows.`,
+    },
+    {
+      text: (
+        <>
+          I work primarily with <span className='font-semibold text-blue-400'>Node.js</span> and{' '}
+          <span className='font-semibold text-blue-400'>NestJS</span>, building REST and GraphQL
+          services on <span className='font-semibold text-blue-400'>MongoDB</span> and{' '}
+          <span className='font-semibold text-blue-400'>Redis</span>. I've implemented real-time
+          features with WebSockets and GraphQL subscriptions, tuned database indexes to cut latency,
+          and built applications that handle thousands of concurrent users.
+        </>
       ),
     },
     {
-      name: "LinkedIn",
-      url: "https://linkedin.com/in/nasirul-ahmed",
-      viewBox: "0 0 382 382",
-      color: "#4460A0",
-      iconPath: (
-        <path d="M347.445,0H34.555C15.471,0,0,15.471,0,34.555v312.889C0,366.529,15.471,382,34.555,382h312.889 C366.529,382,382,366.529,382,347.444V34.555C382,15.471,366.529,0,347.445,0z M118.207,329.844c0,5.554-4.502,10.056-10.056,10.056 H65.345c-5.554,0-10.056-4.502-10.056-10.056V150.403c0-5.554,4.502-10.056,10.056-10.056h42.806 c5.554,0,10.056,4.502,10.056,10.056V329.844z M86.748,123.432c-22.459,0-40.666-18.207-40.666-40.666S64.289,42.1,86.748,42.1 s40.666,18.207,40.666,40.666S109.208,123.432,86.748,123.432z M341.91,330.654c0,5.106-4.14,9.246-9.246,9.246H286.73 c-5.106,0-9.246-4.14-9.246-9.246v-84.168c0-12.556,3.683-55.021-32.813-55.021c-28.309,0-34.051,29.066-35.204,42.11v97.079 c0,5.106-4.139,9.246-9.246,9.246h-44.426c-5.106,0-9.246-4.14-9.246-9.246V149.593c0-5.106,4.14-9.246,9.246-9.246h44.426 c5.106,0,9.246,4.14,9.246,9.246v15.655c10.497-15.753,26.097-27.912,59.312-27.912c73.552,0,73.131,68.716,73.131,106.472 L341.91,330.654L341.91,330.654z"></path>
+      text: (
+        <>
+          On the frontend, I develop responsive interfaces using{' '}
+          <span className='font-semibold text-blue-400'>React</span> and{' '}
+          <span className='font-semibold text-blue-400'>Next.js</span>, focusing on clean state
+          management, component architecture, and user experience. I've deployed production systems
+          on <span className='font-semibold text-blue-400'>AWS</span> (EC2, S3, CloudFront) with
+          CI/CD pipelines using <span className='font-semibold text-blue-400'>Docker</span> and{' '}
+          <span className='font-semibold text-blue-400'>GitHub Actions</span> for reliable releases.
+        </>
       ),
     },
     {
-      name: "X",
-      url: "https://x.com/nasirul_ahmed",
-      viewBox: "0 0 24 24",
-      color: "#4460A0",
-      iconPath: (
-        <path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" />
-      ),
-    },
-    {
-      name: "facebook",
-      url: "https://facebook.com/nasirul-ahmed",
-      viewBox: "0 0 24 24",
-      color: "#4460A0",
-      iconPath: (
-        <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" />
+      text: (
+        <>
+          I've contributed to microservices-oriented architectures, learning firsthand about service
+          boundaries and operational trade-offs. Recently, I've integrated AI tools like{' '}
+          <a
+            href='https://www.anthropic.com/claude'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='underline text-blue-400 hover:text-blue-800 font-medium'
+          >
+            Claude
+          </a>
+          ,{' '}
+          <a
+            href='https://github.com/features/copilot'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='underline text-blue-400 hover:text-blue-800 font-medium'
+          >
+            Copilot
+          </a>
+          , and{' '}
+          <a
+            href='https://cursor.sh'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='underline text-blue-400 hover:text-blue-800 font-medium'
+          >
+            Cursor
+          </a>{' '}
+          into my workflow — not to cut corners, but to solve problems faster and iterate smarter
+          while keeping code quality high.
+        </>
       ),
     },
   ],
-  about: {
-    title: "About Me",
-    paragraphs: [
-      {
-        text: "",
-        highlights: [],
-      },
-    ],
-  },
   expertise: [
     {
-      id: "ai-dev",
-      title: "AI-Powered Development",
-      icon: "Sparkles",
-      iconBg: "bg-purple-100 dark:bg-purple-900/30",
-      iconColor: "text-purple-600 dark:text-purple-400",
-      badge: "Cutting-edge",
-      description:
-        "Leveraging tools like Claude Code, GitHub Copilot with Sonnet 4, Cursor, and ForgeCode to revolutionize workflows, accelerate problem-solving, and create innovative solutions.",
-      tags: ["Claude", "Copilot", "Cursor", "ForgeCode"],
-      colSpan: "half",
+      title: 'AI-Powered Development',
+      badge: 'Cutting-edge',
+      icon: 'HiMiniCpuChip',
+      iconBg: 'bg-purple-100 dark:bg-purple-900/30',
+      iconColor: 'text-purple-600 dark:text-purple-400',
+      highlightColor: 'text-purple-600 dark:text-purple-400',
+      description: (
+        <>
+          Leveraging tools like{' '}
+          <span className='font-medium text-purple-600 dark:text-purple-400'>Claude Code</span>,
+          GitHub Copilot with Sonnet 4, Cursor, and ForgeCode to revolutionize workflows, accelerate
+          problem-solving, and create innovative solutions.
+        </>
+      ),
     },
-  ],
+    {
+      title: 'Backend & APIs',
+      icon: 'FaServer',
+      iconBg: 'bg-blue-100 dark:bg-blue-900/30',
+      iconColor: 'text-blue-600 dark:text-blue-400',
+      highlightColor: 'text-blue-600 dark:text-blue-400',
+      description: (
+        <>
+          Architecting high-performance systems with{' '}
+          <span className='font-medium text-blue-600 dark:text-blue-400'>Node.js</span>, Express,
+          NestJS, REST API and GraphQL. Understanding in microservices, MongoDB optimization, Redis
+          caching.
+        </>
+      ),
+    },
+    {
+      title: 'Infrastructure & DevOps',
+      icon: 'FaCloud',
+      iconBg: 'bg-orange-100 dark:bg-orange-900/30',
+      iconColor: 'text-orange-600 dark:text-orange-400',
+      description:
+        'Hands-on experience deploying applications on AWS using EC2, S3, and CloudFront. Familiar with server configuration, static asset hosting, CDN integration, and supporting CI/CD pipelines to streamline production deployments.',
+    },
+    {
+      title: 'Frontend Development',
+      icon: 'SiReact',
+      iconBg: 'bg-green-100 dark:bg-green-900/30',
+      iconColor: 'text-green-600 dark:text-green-400',
+      description: (
+        <>
+          Creating responsive, performant interfaces with{' '}
+          <span className='font-medium text-green-600 dark:text-green-400'>React.js</span> and{' '}
+          <span className='font-medium text-green-600 dark:text-green-400'>Next.js</span>. Focus on
+          clean component architecture, state management, and exceptional user experiences.
+        </>
+      ),
+    },
+    {
+      title: 'iGaming Backend Development',
+      badge: 'Specialized',
+      icon: 'LuWorkflow',
+      iconBg: 'bg-gradient-to-br from-blue-500 to-purple-500',
+      iconColor: 'text-white',
+      special: true,
+      description:
+        'Developed scalable backends specializing in slot games engine, table games engine and provably fair games backend. Expert in building Remote Gaming Server (RGS) architecture for modular and reliable game integrations.',
+      tags: ['Node.JS', 'Socket.io', 'Redis Pub/Sub', 'MongoDB'],
+    },
+  ] as ExpertiseItem[],
 };
