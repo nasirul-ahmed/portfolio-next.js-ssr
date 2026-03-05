@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${lato.variable} ${quintessential.variable} scroll-smooth`}>
         <ThemeProvider>
           <main className={`flex w-full h-screen overflow-hidden gap-0`}>
-            <section className='w-[30%] lg:p-4 hidden lg:flex flex-col border-r border-white/10 bg-gray-100/50 dark:bg-black'>
+            <section className='w-[30%] lg:p-4 hidden lg:flex flex-col border-r border-white/10 bg-gray-100/50 dark:bg-black overflow-y-auto no-scrollbar scroll-smooth'>
               <Profile />
             </section>
 
@@ -74,14 +74,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </section> */}
               <section className='flex flex-col flex-1 overflow-hidden'>
                 {/* Scrollable content */}
-                <div className='flex-1 overflow-y-auto no-scrollbar scroll-smooth'>
-                  <div className='lg:hidden sm:px-6 p-6 mt-10'>
+                <div className='flex-1 overflow-y-auto px-6 py-8 no-scrollbar scroll-smooth'>
+                  <div className='lg:hidden sm:px-6 pt-6 mb-6'>
                     <Profile />
                   </div>
 
-                  <div className='max-w-4xl mx-auto sm:mt-2 md:mt-20 lg:mt-24 px-4 py-8 sm:px-2 sm:py-4'>
-                    {children}
-                  </div>
+                  <div className='max-w-4xl mx-auto lg:mt-24'>{children}</div>
                 </div>
 
                 {/* Footer pinned to bottom */}
