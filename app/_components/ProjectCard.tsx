@@ -208,13 +208,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
 
         {/* Content */}
-        <div className='p-5'>
+        <div className='p-4'>
           <h3 className='font-bold text-lg text-gray-900 mb-2 group-hover:text-blue-600 transition-colors'>
             {project.title}
           </h3>
 
           {project.description && (
-            <p className='text-gray-600 text-sm mb-3 line-clamp-2'>{project.description}</p>
+            <p className='text-gray-600 text-sm mb-3 line-clamp-5'>{project.description}</p>
           )}
 
           {/* Technologies */}

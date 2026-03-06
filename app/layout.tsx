@@ -22,6 +22,7 @@ const lato = Lato({
   display: 'swap',
   variable: '--font-lato',
 });
+
 // Metadata API for better SEO [citation:2]
 export const metadata: Metadata = {
   title: {

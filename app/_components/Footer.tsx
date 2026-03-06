@@ -13,8 +13,8 @@ export default function Footer() {
   }, [resolvedTheme]);
 
   return (
-    <footer className='pb-8 flex justify-center items-center border-t border-gray-200 dark:border-gray-700'>
-      <div className='pt-8 inline-flex gap-2 dark:border-gray-700 text-center'>
+    <footer className='py-6 flex justify-center items-center border-t border-gray-200 dark:border-gray-700'>
+      <div className='inline-flex gap-2 dark:border-gray-700 text-center'>
         <p className='text-sm text-gray-600 dark:text-gray-300'>
           {currentYear} © Nasirul · Crafted with{' '}
         </p>

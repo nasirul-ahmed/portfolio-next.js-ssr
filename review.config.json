@@ -1,0 +1,17 @@
+{
+  "ai": {
+    "provider": "puter"
+  },
+  "review": {
+    "ignorePatterns": [
+      "**/*.test.js",
+      "**/docs/**",
+      "**/node_modules/**",
+      "**/dist/**",
+      "**/build/**",
+      "**/public/**",
+      "**/.next/**",
+      "**/.vscode/**"
+    ]
+  }
+}
