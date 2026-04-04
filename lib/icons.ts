@@ -17,13 +17,13 @@ import {
   FaCloud,
   FaServer,
   FaLinkedin,
-  FaFacebookSquare, 
+  FaFacebookSquare,
 } from 'react-icons/fa';
 import { CiMenuFries } from 'react-icons/ci';
 import { HiMiniCpuChip } from 'react-icons/hi2';
 import { FcWorkflow } from 'react-icons/fc';
 import { LuWorkflow } from 'react-icons/lu';
-import { FaXTwitter } from "react-icons/fa6";
+import { FaXTwitter } from 'react-icons/fa6';
 import { IconType } from 'react-icons';
 
 export const IconMap = {
@@ -49,7 +49,7 @@ export const IconMap = {
   LuWorkflow,
   FaLinkedin,
   FaFacebookSquare,
-  FaXTwitter
+  FaXTwitter,
 } satisfies Record<string, IconType>;
 
 export type IconName = keyof typeof IconMap;

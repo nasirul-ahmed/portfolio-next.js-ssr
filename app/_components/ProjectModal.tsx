@@ -24,23 +24,29 @@ export default function ProjectModal({ project }: any) {
         <>
           <HeaderSection title='Sample Images' className='my-6 text-md' />
           <div className='w-full max-h-[70vh] mt-6 overflow-y-auto flex flex-col gap-6 pr-2'>
-            {project?.sampleImages?.map((imageSrc: string, index: number) => (
-              <div key={index} className='w-full flex justify-center'>
-                <Image
-                  src={imageSrc}
-                  alt={
-                    project.title
-                      ? project.title + ' sample image ' + (index + 1)
-                      : 'Game Engine image'
-                  }
-                  width={500}
-                  height={900}
-                  loading='lazy'
-                  className='object-contain rounded-lg'
-                  //priority={index === 0} // Prioritize the first image
-                />
-              </div>
-            ))}
+            {project?.sampleImages?.map((imageSrc: string, index: number) => {
+              console.log('imageSrc', imageSrc);
+
+              return (
+                <div key={index} className='w-full flex justify-center'>
+                  {imageSrc && (
+                    <Image
+                      src={imageSrc}
+                      alt={
+                        project.title
+                          ? project.title + ' sample image ' + (index + 1)
+                          : 'Game Engine image'
+                      }
+                      width={500}
+                      height={900}
+                      loading='lazy'
+                      className='object-contain rounded-lg'
+                      //priority={index === 0} // Prioritize the first image
+                    />
+                  )}
+                </div>
+              );
+            })}
           </div>
         </>
       )}

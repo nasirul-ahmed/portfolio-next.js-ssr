@@ -4,6 +4,7 @@ import { Card } from './Card';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRightIcon, Code, EyeIcon, StarIcon } from 'lucide-react';
+import Chip from './Chip';
 
 interface ProjectCardProps {
   project: {
@@ -14,7 +15,7 @@ interface ProjectCardProps {
     description?: string;
     technologies?: string[];
     liveUrl?: string;
-    githubUrl?: string;
+    githubUrl?: { name: string; url: string }[];
     featured?: boolean;
     year?: string | number;
   };
@@ -36,116 +37,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     onHover?.(hovered);
   };
 
-  const onClick = (e: React.MouseEvent) => {
-    // e.preventDefault();
+  const openInNewTab = (e: React.MouseEvent<HTMLDivElement>, url: string) => {
+    e.stopPropagation();
+    e.preventDefault();
+    if (window !== undefined) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
   };
 
-  if (variant === 'compact') {
-    return (
-      <Card
-        variant='flat'
-        className={`group ${className} hover:bg-gray-50 transition-all`}
-        padding='sm'
-      >
-        <Link href={`/projects?project=${project.id}`} className='flex items-center gap-3'>
-          <div className='relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0'>
-            <Image
-              src={project.thumbnail}
-              alt={project.title}
-              fill
-              className='object-cover group-hover:scale-110 transition-transform duration-300'
-            />
-          </div>
-          <div className='flex-1 min-w-0'>
-            <p className='text-sm text-gray-500 mb-0.5'>{project.subtitle}</p>
-            <h4 className='font-semibold text-gray-800 truncate'>{project.title}</h4>
-            {project.year && <p className='text-xs text-gray-400 mt-1'>{project.year}</p>}
-          </div>
-          <ArrowRightIcon className='w-4 h-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity' />
-        </Link>
-      </Card>
-    );
-  }
-
-  if (variant === 'featured') {
-    return (
-      <Card
-        variant='elevated'
-        className={`group overflow-hidden ${className}`}
-        padding='none'
-        onMouseEnter={() => handleHover(true)}
-        onMouseLeave={() => handleHover(false)}
-        // onClick={(e: React.MouseEvent) => onClick(e)}
-      >
-        <Link href={`/projects?project=${project.id}`} className='block md:flex'>
-          <div className='relative md:w-2/5 h-64 md:h-auto overflow-hidden'>
-            <Image
-              src={project.thumbnail}
-              alt={project.title}
-              fill
-              className='object-contain group-hover:scale-110 transition-transform duration-700'
-            />
-            {project.featured && (
-              <div className='absolute top-4 left-4 bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1'>
-                <StarIcon className='w-3 h-3' />
-                Featured Project
-              </div>
-            )}
-          </div>
-
-          <div className='p-6 md:w-3/5 flex flex-col justify-center'>
-            <p className='text-sm font-medium text-blue-600 mb-2'>{project.subtitle}</p>
-            <h3 className='text-2xl font-bold text-gray-900 mb-3'>{project.title}</h3>
-            {project.description && <p className='text-gray-600 mb-4'>{project.description}</p>}
-
-            {/* Technologies */}
-            {project.technologies && project.technologies.length > 0 && (
-              <div className='flex flex-wrap gap-2 mb-4'>
-                {project.technologies.map((tech, index) => (
-                  <span
-                    key={index}
-                    className='px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full'
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            )}
-
-            {/* Action Buttons */}
-            <div className='flex items-center gap-3'>
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium'
-                  onClick={e => e.stopPropagation()}
-                >
-                  <EyeIcon className='w-4 h-4' />
-                  Live Demo
-                </a>
-              )}
-              {project.githubUrl && (
-                <a
-                  href={project.githubUrl}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='inline-flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium'
-                  onClick={e => e.stopPropagation()}
-                >
-                  <Code className='w-4 h-4' />
-                  View Code
-                </a>
-              )}
-            </div>
-          </div>
-        </Link>
-      </Card>
-    );
-  }
-
-  // Default variant - Standard project card
   return (
     <Card
       variant='elevated'
@@ -157,46 +56,44 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       <Link href={`/projects?project=${project.id}`} className='block'>
         {/* Thumbnail Container */}
         <div className='relative h-48 overflow-hidden'>
-          <Image
-            src={project.thumbnail}
-            alt={project.title}
-            fill
-            className='object-cover group-hover:scale-110 transition-transform duration-500'
-          />
+          {project.thumbnail && (
+            <Image
+              src={project.thumbnail}
+              alt={project.title}
+              fill
+              className='object-cover group-hover:scale-110 transition-transform duration-500'
+            />
+          )}
 
           {/* Overlay with quick actions on hover */}
           <div
-            className={`absolute inset-0 bg-black/60 flex items-center justify-center gap-3 transition-opacity duration-300 ${
+            className={`absolute inset-0 bg-black/60 flex flex-col items-center justify-center gap-3 transition-opacity duration-300 ${
               isHovered ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='p-2 bg-white rounded-full hover:bg-gray-100 transition-colors'
-                onClick={e => e.stopPropagation()}
-              >
-                <EyeIcon className='w-5 h-5 text-gray-900' />
-              </a>
-            )}
-            {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='p-2 bg-white rounded-full hover:bg-gray-100 transition-colors'
-                onClick={e => e.stopPropagation()}
-              >
-                <Code className='w-5 h-5 text-gray-900' />
-              </a>
-            )}
-          </div>
+            <div className=' px-3 py-1 text-xs font-medium text-white'>{project.subtitle}</div>
 
-          {/* Project type badge */}
-          <div className='absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-gray-700'>
-            {project.subtitle}
+            <div className='flex items-center gap-2 mt-1'>
+              {project.liveUrl && (
+                <div
+                  className='p-2 bg-white rounded-full hover:bg-gray-100 transition-colors'
+                  onClick={e => openInNewTab(e, project.liveUrl!)}
+                >
+                  <EyeIcon className='w-5 h-5 text-gray-900' />
+                </div>
+              )}
+              {project.githubUrl?.map(({ name, url }) => (
+                <div
+                  key={name}
+                  className='inline-flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg text-white hover:text-blue-600 transition-colors text-sm font-medium'
+                  onClick={e => openInNewTab(e, url)}
+                >
+                  <Code className='w-4 h-4' />
+                  {name}
+                  {/* <span className='text-white hover:text-blue-600'>{}</span> */}
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Year badge if available */}
@@ -221,14 +118,48 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           {project.technologies && project.technologies.length > 0 && (
             <div className='flex flex-wrap gap-2'>
               {project.technologies.slice(0, 3).map((tech, index) => (
-                <span key={index} className='px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded'>
-                  {tech}
-                </span>
+                <Chip key={index} label={tech} isHovered={isHovered} />
               ))}
+              {/* {project.technologies.length > 3 && (
+                <Chip 
+                  label={`+${project.technologies.length - 3}`} 
+                  variant='count'
+                />
+              )} */}
+
               {project.technologies.length > 3 && (
-                <span className='px-2 py-1 text-gray-400 text-xs'>
-                  +{project.technologies.length - 3}
-                </span>
+                /* Use a named group 'group/tech' here */
+                <div className='group/tech relative inline-flex items-center'>
+                  <Chip
+                    label={`+${project.technologies.length - 3}`}
+                    variant='count'
+                    className='cursor-help'
+                  />
+                  <div
+                    className='
+                      invisible opacity-0 
+                      group-hover/tech:visible group-hover/tech:opacity-100 
+                      transition-all duration-200
+                      absolute bottom-full left-1/2 -translate-x-1/2 mb-3 
+                      w-max max-w-[200px] p-2 
+                      bg-gray-900/95 backdrop-blur-sm text-white 
+                      text-[10px] font-medium rounded-lg shadow-2xl z-[100] 
+                      flex flex-wrap gap-1.5 border border-white/10
+                      pointer-events-none
+                    '
+                  >
+                    {project.technologies.slice(3).map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className='bg-white/10 px-2 py-0.5 rounded-md border border-white/5 whitespace-nowrap'
+                      >
+                        {tech}
+                      </span>
+                    ))}
+
+                    <div className='absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-gray-900/95'></div>
+                  </div>
+                </div>
               )}
             </div>
           )}

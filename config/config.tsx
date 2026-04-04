@@ -144,6 +144,38 @@ export const config = {
   ],
   projects: [
     {
+      id: 'shortcode',
+      title: 'ShortCode URL Shortener',
+      subtitle:
+        'High-performance URL shortening application, featuring real-time analytics and link management.',
+      thumbnail: '/projects/shortcode/thumbnail.png',
+      description:
+        'ShortCode is a modern, responsive URL shortening application built with Next.js, focused on providing a seamless experience for creating and managing shortened links.',
+      technologies: [
+        'Node.js',
+        'Fastify',
+        'Next.js',
+        'Tailwind CSS',
+        'MongoDB',
+        'AWS EC2',
+        'Redis',
+        'BullMQ',
+        'Socket.io',
+      ],
+      liveUrl: 'https://shortcode.netbitstudio.com/',
+      githubUrl: [
+        { name: 'Frontend', url: 'https://github.com/nasirul-ahmed/url-shortner-fe' },
+        { name: 'Backend', url: 'https://github.com/nasirul-ahmed/url-shortner' },
+      ],
+      featured: true,
+      sampleImages: [
+        '/projects/shortcode/image-01.png',
+        '/projects/shortcode/image-02.png',
+        '/projects/shortcode/image-03.png',
+      ],
+      year: '2026',
+    },
+    {
       id: 'onepe',
       title: 'OnePe',
       subtitle: 'Mobile first Web Application for bill payments & other services',
@@ -160,7 +192,7 @@ export const config = {
         'Redis',
       ],
       liveUrl: 'https://onepe.netbitstudio.com/',
-      githubUrl: 'https://github.com/nasirul-ahmed/onepe_fe_v2',
+      githubUrl: [{ name: 'Frontend', url: 'https://github.com/nasirul-ahmed/onepe_fe_v2' }],
       featured: true,
       sampleImages: [
         '/projects/onepe/thumbnail.png',
@@ -178,7 +210,8 @@ export const config = {
       title: 'AI Code Guardian',
       subtitle: 'AI-Powered GitHub Pull Request Reviewer',
       thumbnail: '/projects/aicodeguardian/thumbnail.jpg',
-      description: 'Reviews github pull requests using OpenAI\’s GPT models and a set of smart rules and adds beautiful comments to the PRs with suggestions and improvements.',
+      description:
+        'Reviews github pull requests using OpenAI\’s GPT models and a set of smart rules and adds beautiful comments to the PRs with suggestions and improvements.',
       technologies: [
         'Next.js',
         'Tailwind CSS',
@@ -188,7 +221,7 @@ export const config = {
         'OpenAI API',
       ],
       liveUrl: 'https://github.com/marketplace/actions/codeguardian-ai',
-      githubUrl: 'https://github.com/nasirul-ahmed/codeguardian-ai',
+      githubUrl: [{ name: 'Backend', url: 'https://github.com/nasirul-ahmed/codeguardian-ai' }],
       featured: true,
       sampleImages: ['/projects/aicodeguardian/thumbnail.png'],
       year: '2026',

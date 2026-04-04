@@ -69,7 +69,6 @@ function Profile() {
                 target='_blank'
                 href={social.url}
               >
-
                 <Icon size={20} color={social.color} className='w-full h-full' />
                 {/* <svg
                   role='img'
