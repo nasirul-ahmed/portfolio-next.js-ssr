@@ -22,7 +22,7 @@ export default function Chip({
       <span
         className={`px-2.5 py-1 rounded-md text-xs ${className}`}
         style={{
-          color: theme === 'dark' ? 'rgba(255,255,255,0.25)' : 'rgba(100,116,139,0.6)',
+          color: theme === 'dark' ? 'rgba(255,255,255,0.8)' : 'rgba(100,116,139,0.6)',
           fontFamily: '"DM Mono", monospace',
         }}
       >
@@ -46,7 +46,7 @@ export default function Chip({
         color:
           theme === 'dark'
             ? isHovered
-              ? 'rgba(165,180,252,0.8)'
+              ? 'rgba(255,255,252, 0.8)'
               : 'rgba(255,255,255,0.45)'
             : isHovered
               ? 'rgba(99,102,241,0.9)'

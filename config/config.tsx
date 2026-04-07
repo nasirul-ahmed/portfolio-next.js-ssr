@@ -302,8 +302,8 @@ export const config = {
           <span className='font-semibold text-blue-400'>Next.js</span>, focusing on clean state
           management, component architecture, and user experience. I've deployed production systems
           on <span className='font-semibold text-blue-400'>AWS</span> (EC2, S3, CloudFront) with
-          CI/CD pipelines using <span className='font-semibold text-blue-400'>Docker</span> and{' '}
-          <span className='font-semibold text-blue-400'>GitHub Actions</span> for reliable releases.
+          CI/CD pipelines using <span className='font-semibold text-blue-400'>GitHub Actions</span>{' '}
+          and <span className='font-semibold text-blue-400'>Docker</span> for reliable releases.
         </>
       ),
     },
@@ -320,7 +320,7 @@ export const config = {
           >
             Claude
           </a>
-          ,{' '}
+          , and{' '}
           <a
             href='https://github.com/features/copilot'
             target='_blank'
@@ -328,15 +328,6 @@ export const config = {
             className='underline text-blue-400 hover:text-blue-800 font-medium'
           >
             Copilot
-          </a>
-          , and{' '}
-          <a
-            href='https://cursor.sh'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='underline text-blue-400 hover:text-blue-800 font-medium'
-          >
-            Cursor
           </a>{' '}
           into my workflow — not to cut corners, but to solve problems faster and iterate smarter
           while keeping code quality high.

@@ -24,12 +24,7 @@ interface ProjectCardProps {
   onHover?: (isHovered: boolean) => void;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({
-  project,
-  variant = 'default',
-  className = '',
-  onHover,
-}) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '', onHover }) => {
   const [isHovered, setIsHovered] = React.useState(false);
 
   const handleHover = (hovered: boolean) => {
@@ -133,7 +128,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   <Chip
                     label={`+${project.technologies.length - 3}`}
                     variant='count'
-                    className='cursor-help'
+                    className='cursor-help dark:hover:text-white'
                   />
                   <div
                     className='
