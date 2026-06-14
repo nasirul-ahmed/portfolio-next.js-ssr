@@ -24,11 +24,11 @@ export default function Modal({ title, children, onClose }: ModalProps) {
   return (
     <Dialog.Root open onOpenChange={handleClose}>
       <Dialog.Portal>
-        <Dialog.Overlay className='fixed inset-0 bg-black/50 backdrop-blur-sm z-[999]' />
+        <Dialog.Overlay className='fixed inset-0 bg-black/50 backdrop-blur-sm z-[999] overflow-hidden' />
 
         <Dialog.Content
           style={{ zIndex: 999 }}
-          className='fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  z-55 bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-xl w-[90vw] max-w-lg'
+          className='fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-55 bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-xl w-[90vw] h-[90vh] max-w-lg overflow-hidden'
         >
           <div className='flex items-center justify-between mb-4'>
             {title && (

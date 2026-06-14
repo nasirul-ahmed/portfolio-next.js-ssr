@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "pretty": "prettier --write \"app/**/*.{ts,tsx,js,jsx,css,md}\" \"config/*.{ts,tsx,js,jsx,css,md}\" \"lib/**/*.{ts,tsx,js,jsx,css,md}\" \"hooks/*.{ts,tsx,js,jsx,css,md}\"",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "clean": "npx rimraf .next node_modules"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",

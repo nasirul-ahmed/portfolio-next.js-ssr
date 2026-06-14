@@ -17,13 +17,14 @@ export default function ProjectModal({ project }: any) {
 
   return (
     <Modal title={project?.title} onClose={() => router.push('/projects', { scroll: false })}>
-      {/* <p className='text-gray-600 dark:text-gray-100'>{project.description}</p> */}
-
-      {/* For showcasing project sample images */}
+      {project.description && (
+        <p className='text-gray-500 dark:text-white text-sm line-clamp-5'>{project.description}</p>
+      )}
       {project?.sampleImages?.length && (
         <>
-          <HeaderSection title='Sample Images' className='my-6 text-md' />
-          <div className='w-full max-h-[70vh] mt-6 overflow-y-auto flex flex-col gap-6 pr-2'>
+          {/* <HeaderSection level='h4' title='Sample Images' className='my-6 text-md' /> */}
+<p className='text-gray-500 dark:text-white text-lg line-clamp-5 mt-2'>Sample Images</p>
+          <div className='w-full max-h-[70vh] mt-2 overflow-y-auto flex flex-col gap-6 pr-2 pb-16'>
             {project?.sampleImages?.map((imageSrc: string, index: number) => {
               console.log('imageSrc', imageSrc);
 

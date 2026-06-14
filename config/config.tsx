@@ -181,7 +181,7 @@ export const config = {
       subtitle: 'Mobile first Web Application for bill payments & other services',
       thumbnail: '/projects/onepe/thumbnail.png',
       description:
-        'OnePe is a modern, responsive bill payment application built with Next.js, focused on bill payments and wallet management (without peer-to-peer transfers or QR scanning).',
+        'OnePe is a bill payment platform built with NestJS, PostgreSQL, Redis, and Next.js (SSG), wrapped with Capacitor for cross-platform mobile support. Designed around a wallet-first ecosystem, it delivers fast, scalable, and seamless bill payment experiences across web and mobile applications.',
       technologies: [
         'Nest.js',
         'Next.js',
@@ -192,7 +192,10 @@ export const config = {
         'Redis',
       ],
       liveUrl: 'https://onepe.netbitstudio.com/',
-      githubUrl: [{ name: 'Frontend', url: 'https://github.com/nasirul-ahmed/onepe_fe_v2' }],
+      githubUrl: [
+        { name: 'Frontend', url: 'https://github.com/nasirul-ahmed/onepe_fe_v2' },
+        { name: 'Backend', url: 'https://github.com/nasirul-ahmed/onepe_be' },
+      ],
       featured: true,
       sampleImages: [
         '/projects/onepe/thumbnail.png',

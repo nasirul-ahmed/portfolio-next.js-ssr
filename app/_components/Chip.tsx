@@ -46,10 +46,10 @@ export default function Chip({
         color:
           theme === 'dark'
             ? isHovered
-              ? 'rgba(165,180,252,0.8)'
+              ? 'rgba(255, 255, 255, 0.8)'
               : 'rgba(255,255,255,0.45)'
             : isHovered
-              ? 'rgba(99,102,241,0.9)'
+              ? 'rgba(255, 255, 255, 0.9)'
               : 'rgba(100,116,139,0.6)',
         border:
           theme === 'dark'
